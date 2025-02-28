@@ -35,4 +35,21 @@ class Game:
         # on définit aléatoirement quel joueur commence (en jouant donc les blancs)
         self.wplayer, self.bplayer = random.shuffle([player1, player2])
 
+    def move(self, from_pos, to_pos):
+        """
+        1. on vérifie si le roi n'est pas en échec
+            -> si il est en échec à 2.
+            -> sinon à 3.
+        2. on vérifie si il est en échec et mat
+            -> si oui, fin de la partie et victoire de l'adversaire
+            -> sinon chercher les coups légaux pour sortir le roi de l'échec
+        3. on vérifie si le pion demandé peut faire le mouvement demandé
+        4. on vérifie si le mouvement demandé ne met pas le roi en échec
+
+        Conditions de roque :
+        1. le roi et la tour cible ne doivent pas avoir bougé depuis le début de la partie
+        2. il ne doit pas y avoir de pion entre les deux
+        3. le roi ne doit pas être en échec
+        4. le roi ne doit pas arriver en position d'échec
+        """
         
